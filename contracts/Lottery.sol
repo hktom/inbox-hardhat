@@ -11,7 +11,7 @@ contract Lottery {
     }
 
     function enter() public payable {
-        require(msg.value > 0.01 ether);
+        require(msg.value > 0.01 ether, "Not enough ETH");
         players.push(msg.sender);
     }
 
@@ -19,7 +19,7 @@ contract Lottery {
         return
             uint256(
                 keccak256(
-                    abi.encodePacked(block.difficulty, block.timestamp, players)
+                    abi.encodePacked(block.prevrandao, block.timestamp, players)
                 )
             );
     }

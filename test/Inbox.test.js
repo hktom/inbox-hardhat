@@ -17,7 +17,7 @@ describe("Inbox", function () {
   });
  
   it("can change the message", async function () {
-    await inbox.setMessage("bye");
+    await inbox.setMessage("bye"); 
     expect(await inbox.message()).to.equal("bye");
   });
 });
